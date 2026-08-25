@@ -196,6 +196,7 @@ const carregandoTema = tema.descricao === '';
             /> :
             <span>{id === undefined ? 'Cadastrar' : 'Atualizar'}</span>  
             }
+                Cadastrar
             </button>
             </form>
         </div>

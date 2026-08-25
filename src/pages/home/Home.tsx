@@ -5,7 +5,7 @@ function Home() {
 
   return (
     <>
-    /* Container Principal */
+    {/* Container Principal */}
     <div className="bg-indigo-900 flex justify-center">
 
         {/* Container com 2 colunas */}

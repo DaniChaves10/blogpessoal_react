@@ -26,13 +26,13 @@ export const buscar = async (url: string, setDados: Function, header: Object) =>
 
 // Função de cadastrar com token
 export const cadastrar = async (url: string, dados: Object, setDados: Function, header: Object) => {
-    const resposta = await api.post(url, header);
+    const resposta = await api.post(url, dados, header);
     setDados(resposta.data);
 }
 
 // Função de Atualizar com token
 export const atualizar = async (url: string, dados: Object, setDados: Function, header: Object) => {
-    const resposta = await api.put(url, header);
+    const resposta = await api.put(url, dados, header);
     setDados(resposta.data);
 }
 

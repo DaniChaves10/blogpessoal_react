@@ -4,13 +4,17 @@ import type Tema from '../../../models/Tema'
 interface CardTemaProps {
     tema: Tema
 }
-function CardTema( { tema }: CardTemaProps) {
 
+function CardTema({ tema }: CardTemaProps) {
     return (
-        <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-            <header className='py-2 px-6 bg-indigo-800 text-white font-bold text-2xl'>Tema</header>
+        <div className='w-full border flex flex-col rounded-2xl overflow-hidden justify-between'>
+            <header className='py-2 px-6 bg-indigo-800 text-white font-bold text-xl md:text-2xl'>
+                Tema
+            </header>
             
-            <p className='p-8 text-3xl bg-slate-200 h-full'>{tema.descricao}</p>
+            <p className='p-6 md:p-8 text-xl md:text-3xl bg-slate-200 h-full wrap-break-word'>
+                {tema.descricao}
+            </p>
 
             <div className="flex">
                 <Link to={`/editartema/${tema.id}`}
@@ -19,12 +23,12 @@ function CardTema( { tema }: CardTemaProps) {
                     <button>Editar</button>
                 </Link>
 
-                <Link to={'/deletartema/${tema.id}'} className='text-slate-100 bg-red-400 hover:bg-red-700 w-full
-                    flex items-center justify-center'>
+                <Link to={`/deletartema/${tema.id}`} 
+                    className='text-slate-100 bg-red-400 hover:bg-red-700 w-full
+                        flex items-center justify-center py-2'>
                     <button>Deletar</button>
                 </Link>
             </div>
-
         </div>
     )
 }
