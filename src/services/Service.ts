@@ -1,7 +1,7 @@
 import axios from "axios";
  
 const api = axios.create({
-    baseURL: 'https://blogpessoal-spring-0v86.onrender.com'
+    baseURL: import.meta.env.VITE_API_URL
 })
  
 // Função  cadastrar Usuario

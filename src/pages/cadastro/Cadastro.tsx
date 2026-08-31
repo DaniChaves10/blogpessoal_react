@@ -53,7 +53,7 @@ function Cadastro() {
  
     // Validação da senha digitada
     if (confirmarSenha !== usuario.senha || usuario.senha.length < 8) {
-      alert("Senhas não conferem e/ou não possuem pelo menos 8 caracteres");
+      ToastAlerta("Senhas não conferem e/ou não possuem pelo menos 8 caracteres", "erro");
       setUsuario({ ...usuario, senha: '' });
       setConfirmarSenha('');
       return;
@@ -62,15 +62,15 @@ function Cadastro() {
     setIsLoading(true);
     try {
       await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario);
-      alert("Usuario cadastrado com sucesso!");
+      ToastAlerta("Usuario cadastrado com sucesso!", "sucesso");
  
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
-        alert(`Erro ao cadastrar o usuário: ${error.response.status}`)
+        ToastAlerta(`Erro ao cadastrar o usuário: ${error.response.status}`, "erro")
         console.log('Resposta da API:', error.message);
  
       } else {
-        alert("Erro ao cadastrar o usuário! Verifique a conexão com a API!")
+        ToastAlerta("Erro ao cadastrar o usuário! Verifique a conexão com a API!", "erro")
       }
     } finally{
       setIsLoading(false);
@@ -190,3 +190,7 @@ function Cadastro() {
 }
  
 export default Cadastro
+
+function ToastAlerta(_arg0: string, _p0: string) {
+  throw new Error("Function not implemented.");
+}

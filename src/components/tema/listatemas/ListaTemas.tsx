@@ -26,7 +26,7 @@ function ListaTemas() {
     // useEffect para monitorar o token
     useEffect( () => {
         if (token === ''){
-            alert("Você precisa estar logado!")
+            ToastAlerta("Você precisa estar logado!", "info")
             navigate('/');
         }
     }, [token])
@@ -49,11 +49,11 @@ function ListaTemas() {
  
     }catch (error){
       if (axios.isAxiosError(error) && error.response){
-          alert(`Erro ao consultar os temas: ${error.response.status}`);
+          ToastAlerta(`Erro ao consultar os temas: ${error.response.status}`, "erro");
             handleLogout();
           
         } else{
-          alert("Erro ao consultar os temas! Verifique a conexão com a API!");
+          ToastAlerta("Erro ao consultar os temas! Verifique a conexão com a API!", "erro");
         }
     }finally {
       setIsLoading(false);
@@ -99,3 +99,7 @@ function ListaTemas() {
   )
 }
 export default ListaTemas
+
+function ToastAlerta(_arg0: string, _p0: string) {
+  throw new Error("Function not implemented.");
+}

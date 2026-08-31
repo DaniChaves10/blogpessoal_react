@@ -19,7 +19,7 @@ function ListaPostagens() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado!')
+            ToastAlerta('Você precisa estar logado!', "info")
             navigate('/')
         }
     }, [token])
@@ -80,3 +80,7 @@ function ListaPostagens() {
     )
 }
 export default ListaPostagens;
+
+function ToastAlerta(_arg0: string, _p0: string) {
+    throw new Error("Function not implemented.");
+}

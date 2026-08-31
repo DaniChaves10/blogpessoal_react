@@ -38,7 +38,7 @@ function DeletarTema() {
  
     }catch (error){
       if (axios.isAxiosError(error)){
-          alert(`Erro ao cadastrar o tema: ${error.response?.status}`);
+          ToastAlerta(`Erro ao cadastrar o tema: ${error.response?.status}`, "erro");
           if(error.response?.status === 401){
             handleLogout();
           }
@@ -61,7 +61,7 @@ function DeletarTema() {
   // useEffect para monitorar o token
   useEffect( () => {
     if (token === ''){
-      alert("Você precisa estar logado!");
+      ToastAlerta("Você precisa estar logado!", "info");
       navigate('/');
     }
   }, [token])
@@ -77,11 +77,11 @@ function DeletarTema() {
           headers: { Authorization: token }
         })
  
-        alert('Tema deletado com sucessso!')
+        ToastAlerta('Tema deletado com sucessso!', "sucesso")
  
     }catch (error){
       if (axios.isAxiosError(error)){
-          alert(`Erro ao cadastrar o tema: ${error.response?.status}`);
+          ToastAlerta(`Erro ao cadastrar o tema: ${error.response?.status}`, "erro");
           if(error.response?.status === 401){
             handleLogout();
           }
@@ -139,3 +139,7 @@ function DeletarTema() {
   )
 }
 export default DeletarTema
+
+function ToastAlerta(_arg0: string, _p0: string) {
+  throw new Error("Function not implemented.");
+}
